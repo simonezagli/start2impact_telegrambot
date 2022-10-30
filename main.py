@@ -437,4 +437,8 @@ for user in users_backup:
                                users_backup[user]['max_market_cap'], users_backup[user]['message_status'])
 
 thread_json.start()
-bot.polling()
+try:
+   bot.polling()
+except requests.exceptions.ReadTimeout:
+   bot.polling()
+
